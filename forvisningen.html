@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Før visningen – Klargjør boligen selv og få høyere bud</title>
+<meta name="description" content="Lær eksperthemmelighetene som gir høyere bud og raskere salg – uten å leie inn noen. Nettkurs av sertifisert boligstylist. 699 kr.">
+<style>
+/* ── TOKENS ──────────────────────────────────────────────── */
+:root {
+  --plomme:     #5c3d45;
+  --gammelrosa: #8c6b72;
+  --muted:      #a07c84;
+  --pale:       #ede4e6;
+  --hvit:       #fdf8f9;
+  --blagraa:    #e0e6e9;
+  --dus:        #2e5d6e;
+  --ink:        #2a1f22;
+  --gray:       #5a5a5a;
+  --light:      #999;
+
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans:  'Helvetica Neue', Arial, sans-serif;
+
+  --radius: 14px;
+  --max: 860px;
+}
+
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--hvit);
+  color: var(--gray);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(253,248,249,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--pale);
+  padding: 0 32px;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--plomme);
+}
+.nav-cta {
+  background: var(--plomme);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 22px;
+  border-radius: 40px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--gammelrosa); }
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: var(--plomme);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 32px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative rings */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgba(237,228,230,0.08);
+  top: -200px; right: -200px;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(237,228,230,0.06);
+  bottom: -150px; left: -150px;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
+  position: relative; z-index: 1;
+}
+
+/* Signature element: split headline */
+.hero-headline {
+  position: relative; z-index: 1;
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+.hero-headline-small {
+  font-family: var(--sans);
+  font-size: clamp(16px, 3vw, 22px);
+  font-weight: 300;
+  color: var(--pale);
+  opacity: 0.65;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.hero-headline-big {
+  font-family: var(--serif);
+  font-size: clamp(42px, 8vw, 80px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+.hero-headline-big em {
+  font-style: italic;
+  color: var(--pale);
+}
+
+.hero-sub {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: var(--pale);
+  opacity: 0.75;
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+  position: relative; z-index: 1;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  position: relative; z-index: 1;
+}
+.btn-primary {
+  background: white;
+  color: var(--plomme);
+  font-size: 16px;
+  font-weight: 800;
+  padding: 18px 44px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: var(--pale);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.hero-price-note {
+  font-size: 13px;
+  color: var(--pale);
+  opacity: 0.55;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 64px;
+  position: relative; z-index: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ── SECTION UTILITY ─────────────────────────────────────── */
+.section {
+  padding: 88px 32px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  color: var(--plomme);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.section-body {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--gray);
+  max-width: 580px;
+}
+
+/* ── PROBLEM SECTION ─────────────────────────────────────── */
+.problem-section {
+  background: var(--hvit);
+  border-top: 1px solid var(--pale);
+  border-bottom: 1px solid var(--pale);
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 44px;
+}
+.problem-card {
+  background: white;
+  border: 1.5px solid var(--pale);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+}
+.problem-card-icon { font-size: 28px; margin-bottom: 14px; }
+.problem-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--plomme);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.problem-card-text { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* ── WHAT YOU LEARN ──────────────────────────────────────── */
+.learn-section { background: var(--plomme); }
+.learn-section .section { max-width: var(--max); }
+.learn-section .section-title { color: white; }
+.learn-section .section-eyebrow { color: var(--muted); }
+.learn-section .section-body { color: var(--pale); opacity: 0.75; }
+
+.modules-list {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.module-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(237,228,230,0.12);
+}
+.module-item:last-child { border-bottom: none; }
+.module-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gammelrosa);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 44px;
+  padding-top: 2px;
+}
+.module-content {}
+.module-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+.module-desc { font-size: 14px; color: var(--pale); opacity: 0.65; line-height: 1.5; }
+
+/* ── FOR WHOM ────────────────────────────────────────────── */
+.forwhom-section { background: var(--pale); }
+.forwhom-section .section-title { color: var(--plomme); }
+.checks {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 16px;
+  color: var(--plomme);
+  line-height: 1.5;
+}
+.check-dot {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--plomme);
+  color: white;
+  font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── BONUS ───────────────────────────────────────────────── */
+.bonus-section { background: var(--hvit); }
+.bonus-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+.bonus-card {
+  border: 1.5px solid var(--pale);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+.bonus-card::before {
+  content: 'BONUS';
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--muted);
+  background: var(--pale);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.bonus-card-icon { font-size: 32px; margin-bottom: 16px; }
+.bonus-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--plomme);
+  margin-bottom: 8px;
+  line-height: 1.3;
+  padding-right: 60px;
+}
+.bonus-card-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* ── QUOTE ───────────────────────────────────────────────── */
+.quote-section {
+  background: var(--blagraa);
+  padding: 80px 32px;
+  text-align: center;
+}
+.quote-mark {
+  font-family: var(--serif);
+  font-size: 80px;
+  color: var(--gammelrosa);
+  line-height: 0.6;
+  margin-bottom: 24px;
+}
+.quote-text {
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 34px);
+  font-style: italic;
+  color: var(--plomme);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+.quote-author {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gammelrosa);
+}
+
+/* ── ABOUT ───────────────────────────────────────────────── */
+.about-section { background: var(--hvit); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 40px;
+}
+.about-avatar {
+  background: var(--pale);
+  border-radius: var(--radius);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+.about-name {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--plomme);
+  margin-bottom: 4px;
+}
+.about-title {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.about-bio {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.75;
+}
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.about-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--plomme);
+  background: var(--pale);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+/* ── PRICING ─────────────────────────────────────────────── */
+.pricing-section {
+  background: var(--plomme);
+  padding: 88px 32px;
+  text-align: center;
+}
+.pricing-section .section-eyebrow { color: var(--muted); margin-bottom: 16px; }
+.pricing-section .section-title { color: white; text-align: center; margin-bottom: 12px; }
+
+.price-card {
+  background: white;
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 480px;
+  margin: 48px auto 0;
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gammelrosa);
+}
+.price-amount {
+  font-family: var(--serif);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--plomme);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.price-currency {
+  font-size: 24px;
+  color: var(--gammelrosa);
+  vertical-align: top;
+  margin-top: 12px;
+  display: inline-block;
+}
+.price-label {
+  font-size: 13px;
+  color: var(--light);
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+.price-includes {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.price-includes li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--gray);
+}
+.price-includes li::before {
+  content: '✓';
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--pale);
+  color: var(--plomme);
+  font-size: 12px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.btn-buy {
+  display: block;
+  width: 100%;
+  background: var(--plomme);
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+.btn-buy:hover {
+  background: var(--gammelrosa);
+  transform: translateY(-1px);
+}
+.price-note {
+  font-size: 12px;
+  color: var(--light);
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+.faq-section { background: var(--hvit); }
+.faq-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--pale);
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--plomme);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--sans);
+}
+.faq-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--pale);
+  color: var(--plomme);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-a {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.7;
+  padding-bottom: 20px;
+  display: none;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+/* ── FINAL CTA ───────────────────────────────────────────── */
+.final-cta {
+  background: var(--pale);
+  padding: 88px 32px;
+  text-align: center;
+}
+.final-cta .section-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--plomme);
+  margin-bottom: 16px;
+}
+.final-cta .section-body {
+  font-size: 16px;
+  color: var(--gammelrosa);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  padding: 40px 32px;
+  text-align: center;
+}
+.footer-brand {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gammelrosa);
+  margin-bottom: 8px;
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: white; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .bonus-cards  { grid-template-columns: 1fr; }
+  .about-grid   { grid-template-columns: 1fr; }
+  .about-avatar { max-width: 120px; }
+  .hero-stats   { gap: 24px; }
+  nav { padding: 0 20px; }
+  .section { padding: 60px 20px; }
+}
+
+/* ── SCROLL REVEAL ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">M Style Investment</div>
+  <a href="https://payhip.com/b/aZkSy" class="nav-cta">Kjøp kurset – 699 kr</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Nettkurs av sertifisert boligstylist</div>
+  <div class="hero-headline">
+    <div class="hero-headline-small">Se boligen slik kjøperen ser den –</div>
+    <div class="hero-headline-big">og gjør det<br><em>som selger.</em></div>
+  </div>
+  <p class="hero-sub">Klargjør boligen for visning på egenhånd med råd fra en sertifisert boligstylist. Uten å betale 25 000 kr for jobben.</p>
+  <div class="hero-cta-group">
+    <a href="https://payhip.com/b/aZkSy" class="btn-primary">Kom i gang – 699 kr</a>
+    <span class="hero-price-note">Nettkurs · Last ned i dag · Tilgang med én gang</span>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">Moduler</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">Bonuser</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">699</div>
+      <div class="hero-stat-label">Kroner</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">∞</div>
+      <div class="hero-stat-label">Tilgang</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="section reveal">
+    <div class="section-eyebrow">Kjenner du deg igjen?</div>
+    <div class="section-title">De fleste gjør disse<br>fire feilene før visning.</div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-icon">💸</div>
+        <div class="problem-card-title">Bruker penger på feil ting</div>
+        <div class="problem-card-text">Maler hele huset, men glemmer at belysning og tekstiler gjør langt mer for kjøperens inntrykk.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">🗑️</div>
+        <div class="problem-card-title">Rydder – men styler ikke</div>
+        <div class="problem-card-text">En ryddig bolig er utgangspunktet. Det som skiller normale og høye bud, er detaljene.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">📸</div>
+        <div class="problem-card-title">Boligen ser liten ut på bilder</div>
+        <div class="problem-card-text">90 % av kjøpere starter på nett. Dårlige prospektbilder gir færre på visning – uansett hvor fin boligen er.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">😕</div>
+        <div class="problem-card-title">Vet ikke hvor de skal starte</div>
+        <div class="problem-card-text">Med litt tid og liten plass kan alt føles overveldende. Du trenger en prioritert plan – ikke en lang huskeliste.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU LEARN -->
+<section class="learn-section">
+  <div class="section reveal">
+    <div class="section-eyebrow">Hva du lærer</div>
+    <div class="section-title">Åtte moduler.<br>Én klar plan.</div>
+    <p class="section-body">Vi går rom for rom gjennom akkurat det som fungerer – basert på erfaring fra hundrevis av boliger.</p>
+    <div class="modules-list">
+      <div class="module-item">
+        <div class="module-num">1</div>
+        <div class="module-content">
+          <div class="module-title">De første 30 sekundene</div>
+          <div class="module-desc">Kjøperen bestemmer seg lynraskt. Her er hva de reagerer på – og hva du skal gjøre med det.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">2</div>
+        <div class="module-content">
+          <div class="module-title">Belysning – det hemmelige våpenet</div>
+          <div class="module-desc">Riktig lys kan gjøre et rom dobbelt så stort og varmere – uten å renovere noe som helst.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">3</div>
+        <div class="module-content">
+          <div class="module-title">Stue og gang</div>
+          <div class="module-desc">Møblering, puter, planter og detaljer som løfter helhetsinntrykket fra vanlig til imponerende.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">4</div>
+        <div class="module-content">
+          <div class="module-title">Kjøkken</div>
+          <div class="module-desc">Det rommet kjøpere er mest kritiske til. Slik gjør du det innbydende – uten å renovere.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">5</div>
+        <div class="module-content">
+          <div class="module-title">Soverom</div>
+          <div class="module-desc">Hotellseng, nøytrale farger og én teknikk som gjør soverommet til det rommet kjøperen husker.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">6</div>
+        <div class="module-content">
+          <div class="module-title">Bad</div>
+          <div class="module-desc">Hvite håndklær, rene fuger og tre detaljer som løfter badet fra greit til imponerende.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">7</div>
+        <div class="module-content">
+          <div class="module-title">Farger og overflater</div>
+          <div class="module-desc">Fargefeller du bør unngå rett før salg – og hvilke valg som faktisk selger.</div>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-num">8</div>
+        <div class="module-content">
+          <div class="module-title">Fotografering og visningsdag</div>
+          <div class="module-desc">Slik gjør du boligen fotogen for megleren – og hva du sjekker den siste timen før visning.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section class="forwhom-section">
+  <div class="section reveal">
+    <div class="section-eyebrow">Passer kurset for deg?</div>
+    <div class="section-title">Dette er for deg som…</div>
+    <div class="checks">
+      <div class="check-item"><div class="check-dot">✓</div>Skal selge bolig og vil presentere den på sitt aller beste</div>
+      <div class="check-item"><div class="check-dot">✓</div>Ikke har råd eller lyst til å leie inn en full boligstylist til 10–25 000 kr</div>
+      <div class="check-item"><div class="check-dot">✓</div>Vil ha konkrete, prioriterte råd – ikke vage tips fra internett</div>
+      <div class="check-item"><div class="check-dot">✓</div>Ønsker å forstå hva kjøperen faktisk ser og reagerer på</div>
+      <div class="check-item"><div class="check-dot">✓</div>Har begrenset tid og vil bruke den riktig</div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="bonus-section">
+  <div class="section reveal">
+    <div class="section-eyebrow">Inkludert i kurset</div>
+    <div class="section-title">Tre bonuser du<br>kan bruke med én gang.</div>
+    <div class="bonus-cards">
+      <div class="bonus-card">
+        <div class="bonus-card-icon">🛒</div>
+        <div class="bonus-card-title">Handleliste for styling på budsjett</div>
+        <div class="bonus-card-desc">De 6 tingene som gir hotellfølelsen – med butikktips og priser. Totalt ca. 900–2 000 kr.</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-icon">📋</div>
+        <div class="bonus-card-title">Interaktiv stylingplan-generator</div>
+        <div class="bonus-card-desc">Fyll inn dine rom og dager til visning – og få en personlig handlingsplan med tidslinje.</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-icon">💰</div>
+        <div class="bonus-card-title">Interaktiv budsjettplanlegger</div>
+        <div class="bonus-card-desc">Legg til produkter og se totalsum i sanntid. Skriv ut budsjettet før du drar til butikken.</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-icon">✅</div>
+        <div class="bonus-card-title">Komplett visningssjekkliste (PDF)</div>
+        <div class="bonus-card-desc">Rom for rom – gå gjennom den morgenen på visningsdagen og ikke glem noe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section reveal">
+  <div class="quote-mark">"</div>
+  <div class="quote-text">Riktig styling kan være forskjellen på én og ti budgivere.</div>
+  <div class="quote-author">Marianne Mauritzen · Sertifisert boligstylist</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="section reveal">
+    <div class="section-eyebrow">Din kursholder</div>
+    <div class="about-grid">
+      <div class="about-avatar">👩‍💼</div>
+      <div>
+        <div class="about-name">Marianne Mauritzen</div>
+        <div class="about-title">Sertifisert fargerådgiver · Boligstylist · Stavanger</div>
+        <p class="about-bio">Jeg har hjulpet privatpersoner med å klargjøre boliger for salg i mange år – og sett på nært hold hva som faktisk gjør utslaget når kjøperne kommer på visning.<br><br>I dette kurset deler jeg alle de rådene jeg gir kundene mine – slik at du kan gjøre jobben selv, med den samme innsikten, til en brøkdel av prisen.</p>
+        <div class="about-tags">
+          <span class="about-tag">Sertifisert fargerådgiver</span>
+          <span class="about-tag">Boligstylist</span>
+          <span class="about-tag">M Style Investment AS</span>
+          <span class="about-tag">Stavanger</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="kjop">
+  <div class="section-eyebrow">Kom i gang i dag</div>
+  <div class="section-title">Én pris. Alt inkludert.</div>
+  <div class="price-card">
+    <div class="price-amount"><span class="price-currency">kr </span>699</div>
+    <div class="price-label">Engangsbeløp · Ingen abonnement</div>
+    <ul class="price-includes">
+      <li>Komplett PDF-guide (8 moduler)</li>
+      <li>Interaktiv stylingplan-generator</li>
+      <li>Interaktiv budsjettplanlegger</li>
+      <li>Handleliste med butikktips og priser</li>
+      <li>Komplett visningssjekkliste (PDF)</li>
+      <li>Tilgang for alltid – last ned og behold</li>
+    </ul>
+    <a href="https://payhip.com/b/aZkSy" class="btn-buy">Kjøp kurset nå – 699 kr →</a>
+    <div class="price-note">Betaling via Payhip · Kort eller Vipps · Øyeblikkelig tilgang</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section reveal">
+    <div class="section-eyebrow">Spørsmål og svar</div>
+    <div class="section-title">Vanlige spørsmål</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Hva får jeg etter kjøpet?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Du får umiddelbar tilgang til en komplett PDF-guide og tre interaktive bonusverktøy som du kan laste ned og beholde for alltid. Alt er klart til bruk med én gang.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Passer kurset om jeg ikke har mye penger å bruke?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja – faktisk er kurset laget nettopp for deg. Mange av rådene handler om å rydde, flytte og endre – ikke kjøpe. Bonusen "Handleliste for styling på budsjett" viser hva du kan kjøpe for under 2 000 kr totalt.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kan jeg bruke kurset selv om visningen er om noen få dager?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Absolutt. Stylingplan-generatoren tilpasser handlingsplanen til antall dager du har igjen. Og PDF-guiden er strukturert slik at du raskt finner det viktigste.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Hva om jeg allerede har leid megler – trenger jeg fortsatt dette?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja. Megleren tar seg av salget – du tar deg av presentasjonen. Jo bedre boligen ser ut på visning og bilder, jo mer jobber megleren med ryggen fri.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kan jeg kontakte deg med spørsmål?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja, du kan alltid nå meg på mm@mstyleinvestment.no. Jeg svarer på spørsmål knyttet til kurset.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta reveal">
+  <div class="section-title">Klar til å gjøre<br>boligen visningsklar?</div>
+  <p class="section-body">Du er 699 kr unna å ha den komplette planen i hånden – og en bolig som ser ut som en million.</p>
+  <a href="https://payhip.com/b/aZkSy" class="btn-primary" style="display:inline-block; background:var(--plomme); color:white;">
+    Kjøp kurset nå – 699 kr
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">M Style Investment AS</div>
+  <div class="footer-links">
+    <a href="https://mstyleinvestment.com">mstyleinvestment.com</a>
+    <a href="mailto:mm@mstyleinvestment.no">mm@mstyleinvestment.no</a>
+    <a href="#">Personvern</a>
+  </div>
+  <div class="footer-copy">© 2026 M Style Investment AS · Marianne Mauritzen · Stavanger</div>
+</footer>
+
+<script>
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+      observer.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
